@@ -4,10 +4,12 @@ class Qubit:
     def __init__(self, alpha=1.0, beta=0.0): #prob de estados do qubit (alfa e beta)
         self.state = np.array([alpha, beta], dtype=complex)
 
+    #verifica se está normalizado, retorna true caso esteja, false não estando
     def is_normalized(self):
         norma = np.linalg.norm(self.state) #linalg é o submodulo do np para algebra linear
         return np.isclose(norma, 1.0) #desconsidera uma pequena diferença causada pelo arredondamento de máquina
 
+    #normaliza o qubit
     def normalize(self):
         norma = np.linalg.norm(self.state)
         if norma == 0:
